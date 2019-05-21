@@ -4,8 +4,8 @@
 import cv2
 import numpy as np
 
-face_cascade=cv2.CascadeClassifier("C:\\Users\\B.Vishnu charan\\Desktop\\VISHNU FILES\\FOURTH SEMESTER\\IMAGE PROCESSING\\HAAR CASCADES\\haarcascade_frontalface_default.xml") # A trained model for face detection
-eye_cascade=cv2.CascadeClassifier("C:\\Users\\B.Vishnu charan\\Desktop\\VISHNU FILES\\FOURTH SEMESTER\\IMAGE PROCESSING\\HAAR CASCADES\\haarcascade_eye.xml") # A trained model for eye detection
+face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml") # A trained model for face detection
+eye_cascade=cv2.CascadeClassifier("haarcascade_eye.xml") # A trained model for eye detection
 
 cap=cv2.VideoCapture(0)
 id=input('Enter user-id:')
@@ -18,7 +18,7 @@ while True:
     faces=face_cascade.detectMultiScale(gray)  # This will detect all the faces in the current frame and will return the co-ordinates of the frame.
     for x,y,w,h in faces:
         sampleNum=sampleNum+1
-        cv2.imwrite('C:\\Users\\B.Vishnu charan\\Desktop\\VISHNU FILES\\FOURTH SEMESTER\\IMAGE PROCESSING\\FACE IDENTIFICATION\\USERNAME\\'+'User.'+ str(id) +'.'+str(sampleNum)+'.jpg',gray[y:y+h,x:x+w])
+        cv2.imwrite('\\'+'User.'+ str(id) +'.'+str(sampleNum)+'.jpg',gray[y:y+h,x:x+w])
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
         roi_gray=gray[y:y+h,x:x+w]
         roi_color = frame[y:y + h, x:x + w]
